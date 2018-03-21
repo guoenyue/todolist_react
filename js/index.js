@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import AppTodo from "./component/AppTodo";
+
+import { MyPage } from "./router";
 
 ReactDOM.render(
-    (<AppTodo></AppTodo>),
+    (<MyPage />),
     document.getElementById("root")
 );

@@ -1,0 +1,24 @@
+.bookItem {
+    border: 1px solid #363636;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.bookItem~.bookItem {
+    margin-top: 10px;
+}
+
+.bookName {
+    color: goldenrod;
+    font-size: 20px;
+}
+
+.author {
+    color: #333;
+    font-size: 16px;
+}
+
+.bookDetail {
+    color: #ccc;
+    font-size: 14px;
+}
