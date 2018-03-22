@@ -78,9 +78,9 @@ class Page extends Component{
         }
     }
 };
-const BookCatalog=({match})=>(
+const BookCatalog=({match,history})=>(
     <div className="bookCatalogPage">
-        <a href="javascript:;" className="backBtn">&lt;</a>
+        <a href="javascript:;" onClick={history.goBack} className="backBtn">&lt;</a>
         <Page match={match}/>
     </div>
 );
