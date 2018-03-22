@@ -56,7 +56,7 @@ class AppTodo extends Component{
         });
     }
     log(val){
-        console.log(val);
+        //console.log(val);
     }
     render(){
         return (
