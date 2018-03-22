@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter , HashRouter , Route , Link ,Switch  } from "react-router-dom";
+import { BrowserRouter , HashRouter , Route , Link ,Switch,Redirect  } from "react-router-dom";
 
 import NavBar from "./component/NavBar";
 import AppTodo from "./component/AppTodo";
@@ -20,7 +20,8 @@ const MyPage = ({match})=>{
                         <Route exact path="/todo" component={AppTodo} ></Route>
                         <Route  path="/bookcatalog/:id" component={BookCatalog} ></Route>
                         <Route  path="/bookdetail/:id" component={Book} ></Route>
-                        <Route  path="/book" component={AppBook} ></Route>
+                        <Route  path="/book" component={AppBook} exact ></Route>
+                        <Redirect path="/" to={{pathname: '/book'}} exact/>
                     </Switch>
                 </div>
             </HashRouter>

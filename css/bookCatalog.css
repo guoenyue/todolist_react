@@ -1,0 +1,47 @@
+.bookCatalogPage{
+    position: relative;
+}
+.bookCatalogPage .backBtn{
+    position: absolute;
+    z-index: 3;
+    top:20px;
+    left:20px;
+    text-decoration:none;
+    color:#fff;
+}
+.bookface{
+    width:100%;
+    min-height:200px;
+    position: relative;
+    background-color: #cccccc;
+}
+.bookface{
+    height:100%;
+    width: 100%;
+    outline: none;
+}
+.bookTitle{
+    position: absolute;
+    bottom:10px;
+    left:30px;
+}
+
+.tabs{
+    padding: 0;
+    margin: 0;
+}
+.tabs-btn{
+    display:inline-block;
+    padding: 10px 20px;
+    color:#999;
+    border-bottom:2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out ;
+}
+.tabs-btn:hover{
+    color:#333;
+}
+.tabs-btn.act{
+    color:#333;
+    border-bottom:2px solid darkgoldenrod;
+}
