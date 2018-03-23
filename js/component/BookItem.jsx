@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-//import "../../css/bookitem.css";
-require("../../css/bookitem.css");
+import "../../css/bookitem.css";
 
 const BookItem=({name , author , detail,id})=>{
     return (

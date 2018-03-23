@@ -3,20 +3,6 @@ import TodoList from "./TodoList";
 import TodoItem from "./TodoItem";
 import AddTodo from "./AddTodo";
 
-// const todos=[{content:"我是一条todos,并且我已经完成额",completed:true},
-//             {content:"我是一条todos,并且我没有完成额",completed:false}];
-
-// const itemClick=(index)=>{
-//     let tar=todos[index];
-//     tar.completed=!tar.completed;
-// }
-
-// const AppTodo=()=>(
-//     <TodoList>
-//         {todos.map((item,index)=>(<TodoItem key={index} item={item} clickTrigger={()=>{itemClick(index)}}></TodoItem>))}
-//     </TodoList>
-// );
-
 class AppTodo extends Component{
     constructor(){
         super();

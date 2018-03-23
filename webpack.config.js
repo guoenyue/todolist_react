@@ -2,7 +2,7 @@ const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const config={
-    mode: 'production',
+    mode: 'development',
     entry:{
         index:"./js/index.js"
     },
