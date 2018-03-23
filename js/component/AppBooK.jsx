@@ -16,6 +16,9 @@ class AppBook extends Component {
     //         books:[];
     //     };
     // }
+    routerWillLeave(){
+        console.log(111);
+    }
     componentWillMount(){
         this.getBookList();
     }

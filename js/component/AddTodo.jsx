@@ -1,5 +1,6 @@
 import React from "react";
-import "../../css/addtodo.css";
+//import "../../css/addtodo.css";
+require("../../css/addtodo.css");
 
 const AddTodo = ({changeTrigger,clickTrigger})=>{
     let input;

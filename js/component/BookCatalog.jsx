@@ -2,7 +2,8 @@ import React , { Component } from "react";
 import { Link } from "react-router-dom";
 import { loadBookCatalog } from "../util/fetch";
 import Tab from "./common/Tab";
-import "../../css/bookCatalog.css";
+//import "../../css/bookCatalog.css";
+require("../../css/bookCatalog.css");
 
 
 class Page extends Component{
