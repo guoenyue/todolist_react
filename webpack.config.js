@@ -1,6 +1,6 @@
 const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-
+console.log(__dirname,"配置绝对地址是：")
 const config={
     mode: 'production',
     entry:{
