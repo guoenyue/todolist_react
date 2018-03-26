@@ -7,7 +7,7 @@ const loadBookList=(id,page=1,limit=20,type="id")=>{
     let headers=new Headers();
     let config={method:"get",mode:"cors",cache:true,headers:headers};
     //,body:`{showapi_appid:${APP.appid},showapi_sign:${APP.secret}}`
-    let myRequest=new Request(`${url}?${SYSTEM_PARAMS}`,config);
+    let myRequest=new Request(`${url}?${SYSTEM_PARAMS}&id=${id}`,config);
     return fetch(myRequest).then(res=>res.json());
 }
 

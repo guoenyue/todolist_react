@@ -1,0 +1,38 @@
+.statusBox {
+    padding: 20px 0;
+    text-align: center;
+    height: 80px;
+}
+
+.statusBox.load {
+    text-align: center;
+}
+
+.statusBox.load button {
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    background-color: #006bff;
+    color: #fff;
+    padding: 8px 20px;
+    font-size: 18px;
+    margin: 0 auto;
+    cursor: pointer;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+}
+
+.statusBox.loading {
+    color: #333;
+}
+
+.statusBox.end {
+    color: #ccc;
+}
+
+.statusBox.error {
+    color: #f00;
+}

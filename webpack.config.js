@@ -44,7 +44,7 @@ const config={
         extensions: [".js", ".json",".jsx",".css"]
     },
     plugins:[
-        new ExtractTextPlugin("/css/[name].css")//则会生成一个css文件
+        new ExtractTextPlugin("../css/[name].css")//则会生成一个css文件
     ]
 };
 //特别注意此处，处理css时候，一定要将style-loader写在前边，css-loader写在后边处理，否则会报错

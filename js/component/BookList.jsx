@@ -1,7 +1,7 @@
 import React from "react";
 
 const BookList=({children})=>(
-        <ul>
+        <ul className="bookList">
             {children}
         </ul>
     );

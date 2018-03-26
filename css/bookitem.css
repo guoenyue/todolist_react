@@ -1,11 +1,19 @@
+.bookList li~li {
+    margin-top: 10px;
+}
+
 .bookItem {
     border: 1px solid #363636;
     padding: 10px;
     border-radius: 4px;
 }
 
-.bookItem~.bookItem {
-    margin-top: 10px;
+.linktxt {
+    text-decoration: none;
+}
+
+.bookItem .linktxt {
+    margin-right: 10px;
 }
 
 .bookName {
@@ -19,6 +27,43 @@
 }
 
 .bookDetail {
-    color: #ccc;
+    color: #707070;
     font-size: 14px;
+    /*222*/
+}
+
+.ss {
+    font-size: 25px;
+}
+
+.fadeIn-appear {
+    opacity: 0;
+    transform: translate3d(-4%, 0, 0);
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    -webkit-transform: translate3d(-4%, 0, 0);
+    -moz-transform: translate3d(-4%, 0, 0);
+    -ms-transform: translate3d(-4%, 0, 0);
+    -o-transform: translate3d(-4%, 0, 0);
+}
+
+.fadeIn-appear-active {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
