@@ -4,7 +4,9 @@
     "description": "redux demo",
     "main": "",
     "scripts": {
-        "test": ""
+        "dev":"webpack",
+        "build":"webpack --mode=production",
+        "server":"webpack-dev-server"
     },
     "repository": {
         "type": "git",

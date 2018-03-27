@@ -12,8 +12,11 @@ class AppMovie extends Component{
     render(){
         return (
             <div className="movieApp">
-                <ThMovie></ThMovie>
-                {/* <MovieList></MovieList> */}
+                <div className="banner">
+                    <div className="topSearchBox">
+                        
+                    </div>
+                </div>
             </div>
         )
     }
