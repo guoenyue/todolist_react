@@ -1,4 +1,4 @@
-import { APP,API,BOOK_API } from "../config";
+import { APP,API,BOOK_API ,API_DB,MOVIE_API} from "../config";
 
 const SYSTEM_PARAMS=`showapi_appid=${APP.appid}&showapi_sign=${APP.secret}`;
 
@@ -27,4 +27,12 @@ const loadBookDetail=(id)=>{
     return fetch(myRequest).then(res=>res.json());
 }
 
-export {loadBookList, loadBookCatalog,loadBookDetail};
+const loadTheaterMovies=()=>{
+    let url=`/movie`;
+    let myHeaders=new Headers();
+    let config={method:"get",mode:"cors",cache:true,headers:myHeaders};
+    let myReauest=new Request(url,config);
+    return fetch(myReauest).then(res=>res.json());
+}
+
+export {loadBookList, loadBookCatalog,loadBookDetail,loadTheaterMovies};

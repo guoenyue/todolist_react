@@ -6,7 +6,7 @@ import AppTodo from "./component/AppTodo";
 import AppBook from "./component/AppBook";
 import Book from "./component/BookDetail";
 import BookCatalog from "./component/BookCatalog";
-
+import AppMovie from "./component/AppMovie";
 
 
 
@@ -21,7 +21,8 @@ const MyPage = ({match})=>{
                         <Route  path="/bookcatalog/:id" component={BookCatalog} ></Route>
                         <Route  path="/bookdetail/:id" component={Book} ></Route>
                         <Route  path="/book" component={AppBook} exact ></Route>
-                        <Redirect path="/" to={{pathname: '/book'}} exact/>
+                        <Route  path="/movie" component={AppMovie}  ></Route>
+                        <Redirect path="/" to={{pathname: '/movie'}} exact/>
                     </Switch>
                 </div>
             </HashRouter>

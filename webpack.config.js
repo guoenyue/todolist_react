@@ -1,6 +1,7 @@
 const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+var proxy = require('http-proxy-middleware');
 const config={
     mode: 'development',
     entry:{
@@ -43,7 +44,18 @@ const config={
         })
     ],
     devServer:{
-        contentBase:path.join(__dirname,"dist")
+        hot:true,
+        contentBase:path.join(__dirname,"dist"),
+        host: 'localhost',
+        port: '3011',
+        proxy:{
+            "/movie":{
+                target: 'https://api.douban.com/',
+                pathRewrite: {'/movie' : '/v2/movie/in_theaters'},
+                changeOrigin: true,
+                secure: false
+            }
+        }
     }
 };
 //特别注意此处，处理css时候，一定要将style-loader写在前边，css-loader写在后边处理，否则会报错

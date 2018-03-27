@@ -5,7 +5,7 @@ const APP={
     gzip:"1"
 }
 const API="http://route.showapi.com/";
-
+const API_DB="https://api.douban.com/v2/";
 const BOOK_API={
         detailPage:"92-32/",
         detail:"92-91/",
@@ -13,8 +13,10 @@ const BOOK_API={
         bookType:"92-93",
         bookSearch:"92-94"
     };
+const MOVIE_API={
+    theaters:"movie/in_theaters"
+}
 
 
 
-
-export {APP,API,BOOK_API};
+export {APP,API,BOOK_API,API_DB,MOVIE_API};
