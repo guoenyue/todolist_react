@@ -1,11 +1,3 @@
-.clearfix:after {
-    content: " ";
-    display: block;
-    clear: both;
-    visibility: hidden;
-    height: 0;
-}
-
 .thMoviesList {
     overflow: hidden;
 }
@@ -33,7 +25,182 @@
     color: #999;
 }
 
+.movieApp {
+    width: 100%;
+}
 
-/* .thMoviesItem~.thMoviesItem {
-    margin-top: 10px;
-} */
+.banner {
+    width: 100%;
+    background-color: #171D28;
+    padding: 0.2667rem 0 0;
+}
+
+.banner-searchbox {
+    margin: 0 0.32rem;
+}
+
+.ib-location {
+    display: inline-block;
+    width: 1.3333rem;
+}
+
+.ib-searchbox-container {
+    display: inline-block;
+    width: 7.7333rem;
+    margin-left: 0.2667rem;
+}
+
+.b-searchcontrol {
+    font-size: 14px;
+    display: block;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 0.8rem;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 0.3rem;
+    box-sizing: border-box;
+    padding: 0 0.2667rem;
+    color: #333;
+}
+
+.banner-b-active-wrapper {
+    padding: 20px 0 0.5867rem;
+}
+
+.banner-b-active-list {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.banner-ib-active-item {
+    display: inline-block;
+    width: 4.56rem;
+    height: 2.1333rem;
+    border-radius: 0.18rem;
+    -webkit-border-radius: 0.18rem;
+    -moz-border-radius: 0.18rem;
+    -ms-border-radius: 0.18rem;
+    -o-border-radius: 0.18rem;
+    vertical-align: middle;
+}
+
+.banner-ib-active-item~.banner-ib-active-item {
+    margin-left: 0.24rem;
+}
+
+.banner-ib-active-item.bg-1 {
+    background-color: #00a0f3;
+}
+
+.banner-ib-active-item.bg-2 {
+    background-color: #F2108D;
+}
+
+.b-title {
+    display: block;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+}
+
+.banner-ib-active-item .b-title-main {
+    margin: 0.5333rem 0 0.1067rem;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.banner-ib-active-item .b-title-sub {
+    font-size: 12px;
+}
+
+.banner .line-b-solid {
+    margin: 0 0.32rem;
+}
+
+.sectionbox-wrapper {
+    background-color: #171D28;
+}
+
+.hotmovies-sectionbox {
+    padding-top: 0.8rem;
+}
+
+.ib-title-main {
+    display: inline-block;
+}
+
+.sectionbox-wrapper .sectionbox-g-titlebox {
+    width: 9.3333rem;
+    margin: 0 auto;
+}
+
+.sectionbox-g-titlebox .ib-title-txt {
+    display: inline-block;
+    font-size: 20px;
+    color: #fff;
+    font-weight: 600;
+    vertical-align: middle;
+}
+
+.sectionbox-g-titlebox .title-ib-icon {
+    display: inline-block;
+    width: 0.1333rem;
+    height: 0.6667rem;
+    margin-right: 0.5333rem;
+    vertical-align: middle;
+    border-radius: 0.0533rem;
+    -webkit-border-radius: 0.0533rem;
+    -moz-border-radius: 0.0533rem;
+    -ms-border-radius: 0.0533rem;
+    -o-border-radius: 0.0533rem;
+}
+
+.hotmovies-sectionbox .sectionbox-g-titlebox .title-ib-icon {
+    background-color: #15E9FB;
+}
+
+.sectionbox-g-titlebox .morebtn {
+    color: rgb(61, 71, 78);
+    line-height: 0.6667rem;
+    text-decoration: none;
+}
+
+.sectionbox-g-titlebox .morebtn:hover {
+    text-decoration: none;
+}
+
+.sections-g-bodybox {
+    margin-top: 0.6667rem;
+}
+
+.hotmovies-wrapper {
+    margin-left: 0.3467rem;
+    overflow: hidden;
+}
+
+.hotmovies-list {}
+
+.hotmovies-item {
+    float: left;
+    width: 2.8rem;
+    height: 230px;
+    background-color: #006bff;
+}
+
+.hotmovies-item~.hotmovies-item {
+    margin-left: 0.24rem;
+}
+
+.moviecover {
+    width: 2.8rem;
+    height: 4.1333rem;
+    border-radius: 0.1067rem;
+    -webkit-border-radius: 0.1067rem;
+    -moz-border-radius: 0.1067rem;
+    -ms-border-radius: 0.1067rem;
+    -o-border-radius: 0.1067rem;
+}

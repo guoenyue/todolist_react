@@ -1,0 +1,55 @@
+项目规划：
+
+技术站：react,react-css-transition-group,react-router,[redux],fetch,flexibleJs,es6
+开发工具：webpack,webpack-dev-server(proxy)
+
+开发规范：
+    1.资源分类
+        文件树
+        |----/root
+            -------index.html
+            -------package.json
+            -------webpack.config.js
+            |------/css
+                -------reset.css
+                -------common.css
+            |------/js
+                |-----/component
+                |-----/redux
+                |-----/util
+                config.js
+                router.js
+                index.js
+            |------/img
+            |------/dist
+                |-------js
+                |-------css
+                --------index.html
+
+    2.样式命名规范：
+        1.所有的class名字采用a-b-c-[d]的格式命名：(所有类名均使用小写字母)
+            a:代表了类名的作用域，分别对应g:globel,全局响应；m-：仅移动端；ui-:ui组件；hook-:表述该类名仅js操作有关，并不具有样式，
+                *代表当前组件时候，开头不固定需要使用组件名，比如一个priceTable组件区，则样式名为：pricetable-
+            b:代表了元素的盒子类型，分别对应b:block,ib:inline-block,i:inline,fb:flex(box)
+            c:代表了功能类名：比如 ：modal(模态框，遮罩层)，dropdown(下拉框)。。。，btn(按钮)
+            [d]:代表了额外辅助说明:比如列表盒子：list,列表项：item,
+        
+        2.容器嵌套规范：
+            组件最外层：-wrapper,
+            组件内层：-container
+            组件标题区：-titlebox
+            组件内容区：-contentbox,-bodybox
+            列表盒子:-list
+            列表项：-item
+            项目详情：-detailbox
+            文字：-txt,-detailtxt
+        3.默认公用样式名：
+            .fl {float:left;}
+            .fr {float:right;}
+            .clearfix:after {clear:both;...}
+            .tc {text-align:center;}
+            .tl {text-align:left;}
+            .tr {text-align:right;}
+        4.名称缩写规范：
+            ...
+        

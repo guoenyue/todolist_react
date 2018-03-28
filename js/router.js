@@ -8,6 +8,7 @@ import Book from "./component/BookDetail";
 import BookCatalog from "./component/BookCatalog";
 import AppMovie from "./component/AppMovie";
 
+import "../css/common.css";
 
 
 const MyPage = ({match})=>{

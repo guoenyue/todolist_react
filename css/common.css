@@ -1,0 +1,38 @@
+ul,
+li {
+    list-style: none;
+}
+
+.clearfix:after {
+    content: " ";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+}
+
+.fr {
+    float: right;
+}
+
+.fl {
+    float: left;
+}
+
+.line-b-solid {
+    display: block;
+    border-bottom: 1px solid #6b6b6b;
+    transform: scaleY(.5);
+    -webkit-transform: scaleY(.5);
+    -moz-transform: scaleY(.5);
+    -ms-transform: scaleY(.5);
+    -o-transform: scaleY(.5);
+}
+
+.g-txt-colot-gray {
+    color: #a9b6b9;
+}
+
+.g-txt-colot-white {
+    color: #fff;
+}
