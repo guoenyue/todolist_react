@@ -159,7 +159,7 @@
 }
 
 .hotmovies-sectionbox .sectionbox-g-titlebox .title-ib-icon {
-    background-color: #15E9FB;
+    background-color: #159bfb;
 }
 
 .sectionbox-g-titlebox .morebtn {
@@ -383,6 +383,13 @@
     bottom: 0.4rem;
     width: 1.4667rem;
     height:2rem;
+    overflow: hidden;
+    box-shadow:0 0 4px #333;
+    border-radius:0.1067rem;
+    -webkit-border-radius:0.1067rem;
+    -moz-border-radius:0.1067rem;
+    -ms-border-radius:0.1067rem;
+    -o-border-radius:0.1067rem;
 }
 .groomblock-box .cover-wrapper img{
     height:100%;
@@ -403,4 +410,108 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space:nowrap
+}
+.commentbox-sectionbox .sectionbox-g-titlebox .title-ib-icon {
+    background-color: rgb(12,242,251);
+}
+.commentbox-sectionbox .commentbox-wrapper{
+    padding:0.32rem;
+}
+.commentbox-wrapper .b-videobox{
+    width: 100%;
+}
+.commentbox-wrapper .b-videobox .poster{
+    width: 100%;
+}
+.commentbox-descbox-wrapper{
+    padding-top:0.4933rem;
+    margin-bottom:0.5067rem;
+}
+.commentbox-descbox-wrapper .desc-wrapper{
+    margin-top: 0.3467rem;
+}
+.commentbox-descbox-wrapper .desc-wrapper .desc-txt{
+    font-size:14px;
+    line-height:1.5;
+    color:rgb(68,81,121);
+}
+.avatorbox-wrapper{
+    padding-top:0.24rem;
+}
+.avator-wrapper,.username-wrapper,.extratxt-wrapper{
+    display: inline-block;
+    vertical-align: middle;
+}
+.avator-wrapper{
+    width: 0.8533rem;
+    height: 0.8533rem;
+    margin-right:0.1867rem;
+    overflow: hidden;
+    border-radius:50%;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    -ms-border-radius:50%;
+    -o-border-radius:50%;
+}
+.avator-wrapper .avator{
+    width: 100%;
+    height: 100%;
+}
+.username-wrapper{
+    color:#9e0e5e;
+    margin-right:0.16rem;
+}
+.extratxt-wrapper{
+    color:#52636d;
+}
+.commentbox-container{
+    margin-top:0.5333rem;
+}
+.commentbox-item~.commentbox-item{
+    margin-top:0.2933rem;
+}
+.commentbox-box{
+    padding:0 0.32rem;
+}
+.coverbox-wrapper{
+    display: inline-block;
+    width: 2.5333rem;
+    height:3.7333rem;
+    margin-right:0.3467rem;
+    vertical-align:top;
+    overflow: hidden;
+    border-radius:0.1067rem;
+    -webkit-border-radius:0.1067rem;
+    -moz-border-radius:0.1067rem;
+    -ms-border-radius:0.1067rem;
+    -o-border-radius:0.1067rem;
+}
+.coverbox-wrapper .cover{
+    width: 100%;
+    height: 100%;
+}
+.descbox-wrapper{
+    display: inline-block;
+    padding-top:0.2667rem;
+    width: 6.4rem;
+}
+.commentbox-box .desc-wrapper{
+    margin:0.4rem 0 0.2rem;
+    height:40px;
+    width: 100%;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    color:rgb(68,81,121);
+}
+.desc-wrapper .desc-txt{
+    color:rgb(68,81,121);
+    font-size:14px;
+}
+.commentbox-box .desc-wrapper+.line-b-solid{
+    margin-top: 0.2667rem;
+}
+.commentbox-box .avatorbox-wrapper{
+    margin:0.2rem 0 0.48rem;
 }
