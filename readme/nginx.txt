@@ -1,0 +1,155 @@
+作为一个前端，虽然经常开发web项目，但是基本上都是本地开发环境，或者直接用wamp，lamp等集成环境下开发，或者使用http-server,webpack-dev-server的本地node
+服务器开发，从来都没有过真实的服务器环境配置，虽然这些都是运维同学的工作，但是身为一个前端，本着没有困难创造困难也要干的心态，果断买了一台云服务器
+开启了我的服务器配置发布之路。
+
+其实之前在学习ng的时候我就曾经有过疑问，那个时候做出来项目是用ng自带的cli，我只负责开发页面及功能，服务器配置什么的都是后台同事去帮忙处理
+然后本地开发没有问题，但是放在线上就有一个问题出现，那就是我在本地开发的时候路由用的是restful风格，但是项目发布到线上之后，一开始打开首页
+还好，但是在路由页面刷新之后便出现了资源404，很显然服务器解析的时候把路由地址当成真正的资源去请求了，然后在技术领导的指点下我将路由换成了
+hash风格，问题得以解决，后来自己也去了解了路由的机制，也明白了问题的原因，但是总想琢磨着使用restful风格再玩一玩。苦于一直没有机会。
+
+
+其实刚买到服务器我是懵逼的，因为之前自己曾今买过一台centos 系统的独享云虚拟主机，是阿里云的，当时那台根本不用我去手动配置，我直接把域名解析之后
+可以直接在阿里云提供的控制台操作服务器去解析哪个路径下的网页发布。很傻瓜式了。但是今次我买了一台ubuntu（从腾讯买的）的云服务器，（ps：有关云主机
+与云服务器的区别请点击：https://help.aliyun.com/knowledge_detail/36214.html?spm=5176.11065259.1996646101.searchclickresult.733313f71Z3kQb
+地址进行了解，我以前一直认为俩个没有区别，而今看来区别很大，这也是我接下来要自己配置网站的原因。）也没有注册域名，想着自己可以开始配置之路了，其实一
+开始，我用了ssh连接到了服务器，很偶然的就装了nginx。。真的是很偶然了应为我就是想试试linux的下载命令随便下了一个软件的啊，😂，然后看着主机地址我懵了，
+我的项目要放到哪里才可以被外界访问？？？这个问题一开始就难住我了，而且我在浏览器地址栏输入我的ip直接提示没有网站之类的，并不是404，我懵了，这个时候我去
+谷歌，然后一溜的回答都是安装wamp，lamp等继承环境甚至有说安装wordpress的，都是什么鬼啊，我又不玩php哈哈哈。后来我就先把这个问题放在一边，然后想着反
+正也装了一个nginx，不然先看看这个是干什么的，我就百度了一下nginx的开启命令 service nginx start [开启nginx指令]神奇的事情发生了，我再次在浏览器
+地址栏输入IP时，页面变成了welcome to nginx，此时兴奋不已，我知道网站发布成功了，我就去百度了nginx是一个什么东西，怎么会有这么神奇的功能。原来这玩意
+自带一个http服务解析的功能，啥也不说了，那既然如此，我只要搜集nginx的资料去配置就行了，开干！理想总是美好，然而现实总是无情的打脸，我去搜了nginx的基础配置
+总共也就几处需要配置，而且基本上看英文也都能知道各项都是配置什么的。我先简单说一下：
+1.ubuntu（其他linux主机也大同小异）下安装nginx命令：sudo apt-get install nginx   [安装其他软件时，只需要把nginx用软件名替换即可，举个栗子：
+比如我要在ubuntu下安装node 那么只需要敲命令 sudo apt-get install nodejs即可]；sudo的功能是取得管理员权限，切换管理员身份是sudo -s.
+2.安装完成之后，可以看到 /etc/nginx下有nginx的配置文件nginx.conf,我们需要修改的配置项文件就是它。 vi /etc/nginx/nging.conf  这里我们使用
+自带的vi命令去编辑，当然有时可能会出现什么权限不够的问题，我们可以通过在前边使用sudo命令来修改，如果不切换到root身份，这个命令会经常用到，需要注意
+3.配置文件内容介绍
+写在前边，其实nginx的配置对前端来说是相当友好了，语法有点像css规则，只是没有键值之间的冒号。
+
+
+user www-data;
+worker_processes auto;
+pid /run/nginx.pid;
+
+events {
+    #在配置文件中井号是注释项，相当于js中的//
+	worker_connections 768;
+    #上边这个配置是表明服务器的最大连接数
+	# multi_accept on;
+}
+
+http {
+    #重点来了，我们简单配置项目的时候这个http是我们需要重点关注的也是我们要修改的内容项
+	##
+	# Basic Settings
+	##
+
+	sendfile on;
+	tcp_nopush on;
+	tcp_nodelay on;
+	keepalive_timeout 65;
+	types_hash_max_size 2048;
+	# server_tokens off;
+
+	# server_names_hash_bucket_size 64;
+	# server_name_in_redirect off;
+
+	include /etc/nginx/mime.types;
+	default_type application/octet-stream;
+
+	##
+	# SSL Settings
+	##
+
+	ssl_protocols TLSv1 TLSv1.1 TLSv1.2; # Dropping SSLv3, ref: POODLE
+	ssl_prefer_server_ciphers on;
+
+	##
+	# Logging Settings
+	##
+
+	access_log /var/log/nginx/access.log;
+	error_log /var/log/nginx/error.log;
+
+    #上边这个配置是设置日志存储地，汗，看了这个日志之后我发现互联网真的是对经营者太透明了，这个东西配合后台真的是任何用户信息都可以拿到
+
+	##
+	# Gzip Settings
+	##
+
+	gzip on;
+	gzip_disable "msie6";
+
+	# gzip_vary on;
+	# gzip_proxied any;
+	# gzip_comp_level 6;
+	# gzip_buffers 16 8k;
+	# gzip_http_version 1.1;
+	# gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
+
+    #上边这个是设置gzip压缩选项
+
+	##
+	# Virtual Host Configs
+	##
+
+	include /etc/nginx/conf.d/*.conf;
+	include /etc/nginx/sites-enabled/*;
+	
+    #这里一定要重点说一下，因为我在这里遇到了一个大坑，上边这两项的意思我觉得就是将include里的内容包含进配置嘛，原本没有什么问题
+    #可是nginx默认配置中也就是上边的第二个include文件夹下有一个default文件。它默认设置了server导致了我在当前文件中无论怎么设置server
+    #都不生效，后来也是很偶然，我打开了那个文件发现了里边的配置，才意识到，我的设置可能都被那个文件覆盖了，后来我把上边两项目注释掉后，服务器正
+    #常，所有的个人配置都生效了，所以第一次设置这个文件的时候一定要记得把上边两项目注释掉，当然你懂如何修改的话可以直接去复写掉，但是不建议
+    #去修改软件的默认配置文件。还是在当前配置注释掉引用好了。
+
+	server {
+		listen 80;
+		server_name localhost;
+		root _dirname;
+		charset utf-8;
+
+		location /app/ {
+			root dist;
+			index index.html;
+			#设置restful风格
+			try_files $uri $uri/ /index.html;				
+		}
+	}
+
+    #上边这个server就是对应着我们网站的解析规则了。各个字段的表示含义也很清楚了，listen表示监听端口
+    #server_name 是你的解析域名，多个子IP用逗号分割。root是web项目根目录，注意这里如果使用相对路径的话
+    #会依赖nginx的安装目录，所以为了我们可以自由方便的设置项目，强烈推荐使用绝对路径。并且这里有个问题就是server
+    #下的root跟location下的root会使用就近原则。而且两者仅一个生效，不会说location里的root会在server的root的基础上
+    #再就是接下来location里边的index项目是设置当没有指定资源申请时候的默认主页，多个的话空格分开，下边就是try_files了
+    #这一项就是设置服务端路由的，$uri这个变量是nginx内部的运行变量，这里我们将所有的非资源请求页面全都返回到index.html
+    #如果不使用restful风格路由那么你需要将其指定为404或其他
+    #location后的那一项为path正则匹配项目，如果有多项规则请单独设置，一个server可以有多组location对应设置，同时
+    #一个http也可以设置多组server
+
+
+}
+
+#mail {
+#	# See sample authentication script at:
+#	# http://wiki.nginx.org/ImapAuthenticateWithApachePhpScript
+# 
+#	# auth_http localhost/auth.php;
+#	# pop3_capabilities "TOP" "USER";
+#	# imap_capabilities "IMAP4rev1" "UIDPLUS";
+# 
+#	server {
+#		listen     localhost:110;
+#		protocol   pop3;
+#		proxy      on;
+#	}
+# 
+#	server {
+#		listen     localhost:143;
+#		protocol   imap;
+#		proxy      on;
+#	}
+#}
+
+
+#以上除了server中的内容为自己配置的，其余所有内容都是nginx安装完成之后的默认项。所以这是一个简单的完整配置文件，当然我这里只是简单的一个介绍
+#更多的内容如nginx中解决跨域的方案反向代理等功能需要后边的慢慢探索。that is all
