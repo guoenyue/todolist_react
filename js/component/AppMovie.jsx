@@ -12,13 +12,38 @@ import "../../css/movies.css";
 class AppMovie extends Component{
     constructor(){
         super();
+        this.touchBegin=this.touchBegin.bind(this);
+        this.touchMove=this.touchMove.bind(this);
+        this.touchEnd=this.touchEnd.bind(this);
     }
     componentWillMount(){
+    }
+    touchBegin(touchEvent){
+        this.beginPos={
+            x:touchEvent.clientX,
+            y:touchEvent.clientY
+        };
+        console.log("起点",this.beginPos);
+    }
+    touchMove(touchEvent){
+        let curPos={
+            x:touchEvent.clientX,
+            y:touchEvent.clientY
+        };
+        //console.log("在移动",curPos);
+        console.log(`移动了x:${curPos.x-this.beginPos.x},y:${curPos.y-this.beginPos.y}`);
+    }
+    touchEnd(touchEvent){
+        let endPos={
+            x:touchEvent.clientX,
+            y:touchEvent.clientY
+        }
+        console.log(`最终移动了x:${endPos.x-this.beginPos.x},y:${endPos.y-this.beginPos.y}`);
     }
     render(){
         return (
             <div className="movieApp">
-                <div className="banner">
+                <div className="banner" onTouchStart={(e)=>this.touchBegin(e.touches[0])} onTouchMove={(e)=>this.touchMove(e.touches[0])} onTouchEnd={(e)=>console.log(e.touches)}>
                     <SearchBar placeholder="搜索" searchEvent={(val)=>console.log(val)} keyEvent={()=>{}}></SearchBar>
                     <HotActives actives={[{id:1212,href:"javascript:;",title:"热门活动",num:7,txt:"个优惠"},{id:2121,href:"javascript:;",title:"每日红包",num:13607,txt:"人已领取"}]}></HotActives>
                     <div className="line-b-solid"></div>
