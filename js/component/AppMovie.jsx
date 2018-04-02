@@ -1,5 +1,9 @@
 import React ,{Component} from "react";
 
+import SearchBar from "./Movie/SearchBar";
+import HotActives from "./Movie/HotActives";
+import Title from "./Movie/Title";
+import HotMovie from "./Movie/HotMovie";
 
 import ThMovie from "./ThMovieList";
 
@@ -15,96 +19,18 @@ class AppMovie extends Component{
         return (
             <div className="movieApp">
                 <div className="banner">
-                    <div className="searchbox banner-searchbox">
-                        <div className="ib-location"><span className="g-txt-color-white" style={{fontSize:14}}>北京</span></div>
-                        <div className="ib-searchbox-container">
-                            <input type="text" className="b-searchcontrol" placeholder="搜索" />
-                        </div>
-                    </div>
-                    <div className="banner-b-active-wrapper">
-                        <ul className="banner-b-active-list">
-                            <li className="banner-ib-active-item bg-1">
-                                <div className="b-title-main b-title">热门活动</div>
-                                <div className="b-title-sub b-title g-txt-color-gray"><span className="g-txt-color-white">7</span>个优惠</div>
-                            </li>
-                            <li className="banner-ib-active-item bg-2">
-                                <div className="b-title-main b-title">每日红包</div>
-                                <div className="b-title-sub b-title g-txt-color-gray"><span className="g-txt-color-white">13607</span>人已领取</div>
-                            </li>
-                        </ul>
-                    </div>
+                    <SearchBar placeholder="搜索" searchEvent={(val)=>console.log(val)} keyEvent={()=>{}}></SearchBar>
+                    <HotActives actives={[{id:1212,href:"javascript:;",title:"热门活动",num:7,txt:"个优惠"},{id:2121,href:"javascript:;",title:"每日红包",num:13607,txt:"人已领取"}]}></HotActives>
                     <div className="line-b-solid"></div>
                 </div>
                 <div className="sectionbox-wrapper hotmovies-sectionbox">
                     <div className="sectionbox-g-titlebox">
-                        <div className="titlebox-wrapper clearfix">
-                            <div className="ib-title-main">
-                                <span className="title-ib-icon"></span><span className="ib-title-txt">热门电影</span>
-                            </div>
-                            <div className="fr"><a href="javascript:void(0);" className="morebtn">更多 &gt;</a></div>
-                        </div>
+                        <Title title="热门电影">
+                                <a href="javascript:void(0);" className="morebtn">更多 &gt;</a>
+                        </Title>
                     </div>
                     <div className="sections-g-bodybox">
-                        <div className="hotmovies-wrapper">
-                            <div className="hotmovies-container">
-                                <ul className="hotmovies-list clearfix">
-                                    <li className="hotmovies-item">
-                                        <div className="hotmovies-box">
-                                            <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2512933684.jpg" alt="环太平洋·雷霆再起" className="moviecover" />
-                                            <div className="b-descbox">
-                                                <h3 className="moviename">环太平洋·Ⅱ</h3>
-                                                <div className="starbox-wrapper">
-                                                    <ul className="star-list">
-                                                        <li className="star-item act"><span className="star">★</span></li>
-                                                        <li className="star-item act"><span className="star">★</span></li>
-                                                        <li className="star-item act"><span className="star">★</span></li>
-                                                        <li className="star-item"><span className="star">☆</span></li>
-                                                        <li className="star-item"><span className="star">☆</span></li>
-                                                    </ul>
-                                                    <span className="score">8.2</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li className="hotmovies-item">
-                                        <div className="hotmovies-box">
-                                            <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2512933684.jpg" alt="环太平洋·雷霆再起" className="moviecover" />
-                                            <div className="b-descbox">
-                                                <h3 className="moviename">环太平洋·Ⅱ</h3>
-                                                <div className="starbox-wrapper">
-                                                    <ul className="star-list">
-                                                        <li className="star-item act"><span className="star">★</span></li>
-                                                        <li className="star-item act"><span className="star">★</span></li>
-                                                        <li className="star-item act"><span className="star">★</span></li>
-                                                        <li className="star-item"><span className="star">☆</span></li>
-                                                        <li className="star-item"><span className="star">☆</span></li>
-                                                    </ul>
-                                                    <span className="score">8.2</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li className="hotmovies-item">
-                                        <div className="hotmovies-box">
-                                            <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2512933684.jpg" alt="环太平洋·雷霆再起" className="moviecover" />
-                                            <div className="b-descbox">
-                                                <h3 className="moviename">环太平洋·Ⅱ</h3>
-                                                <div className="starbox-wrapper">
-                                                    <ul className="star-list">
-                                                        <li className="star-item act"><span className="star">★</span></li>
-                                                        <li className="star-item act"><span className="star">★</span></li>
-                                                        <li className="star-item act"><span className="star">★</span></li>
-                                                        <li className="star-item"><span className="star">☆</span></li>
-                                                        <li className="star-item"><span className="star">☆</span></li>
-                                                    </ul>
-                                                    <span className="score">8.2</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                        <HotMovie></HotMovie>
                     </div>
                 </div>
                 <div className="sectionbox-wrapper recommendedmovies-sectionbox">

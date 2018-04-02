@@ -153,3 +153,6 @@ http {
 
 #以上除了server中的内容为自己配置的，其余所有内容都是nginx安装完成之后的默认项。所以这是一个简单的完整配置文件，当然我这里只是简单的一个介绍
 #更多的内容如nginx中解决跨域的方案反向代理等功能需要后边的慢慢探索。that is all
+
+
+##额外的补充：nginx的启动命令 service nginx start 重启命令：service nginx restart 关闭命令 service nginx stop

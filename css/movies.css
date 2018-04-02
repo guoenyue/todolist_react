@@ -177,11 +177,15 @@
 }
 
 .hotmovies-wrapper {
-    margin-left: 0.3467rem;
     overflow: hidden;
 }
+.hotmovies-container{
+    overflow: auto;
+}
 
-/* .hotmovies-list {} */
+.hotmovies-list {
+    margin:0 0.3467rem;
+}
 
 .hotmovies-item {
     float: left;
@@ -210,6 +214,15 @@
     line-height: 1;
     font-size:16px;
     color:#fff;
+    height:30px;
+}
+.moviename a{
+    color:#fff;
+}
+.moviename a:active,
+.moviename a:link{
+    color:#fff;
+    text-decoration:none;
 }
 .starbox-wrapper{
     display: block;
