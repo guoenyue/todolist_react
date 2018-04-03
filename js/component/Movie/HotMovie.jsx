@@ -35,7 +35,7 @@ class HotMovie extends Component{
                                 return (
                                     <li key={movie.id} className="hotmovies-item">
                                         <div className="hotmovies-box">
-                                            <a href={movie.alt}><img src={movie.images.small} alt="movie.title" className="moviecover" /></a>
+                                            <a href={movie.alt}><img src={movie.images.small} alt={movie.title} className="moviecover" /></a>
                                             <div className="b-descbox">
                                                 <h3 className="moviename"><a href={movie.alt}>{movie.title}</a></h3>
                                                 <Score score={movie.rating.average} stars={Math.round((movie.rating.stars/100)*10)}></Score>
