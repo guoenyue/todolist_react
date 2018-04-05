@@ -16,7 +16,6 @@ const MyPage = ({match})=>{
         <div>
             <HashRouter>
                 <div>
-                    <NavBar></NavBar>
                     <Switch>
                         <Route exact path="/todo" component={AppTodo} ></Route>
                         <Route  path="/bookcatalog/:id" component={BookCatalog} ></Route>
@@ -25,6 +24,7 @@ const MyPage = ({match})=>{
                         <Route  path="/movie" component={AppMovie}  ></Route>
                         <Redirect path="/" to={{pathname: '/movie'}} exact/>
                     </Switch>
+                    <NavBar></NavBar>
                 </div>
             </HashRouter>
         </div>

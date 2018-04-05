@@ -10,8 +10,27 @@ import Comming from "./Movie/Comming";
 import Groom from "./Movie/Groom";
 import Popular from "./Movie/Popular";
 
+import {addPageDownEvent,addPageUpEvent} from "../util/Event";
 
 import "../../css/movies.css";
+
+let unsubscrible1=addPageDownEvent(function(){
+    console.log(3);
+});
+
+let unsubscrible2=addPageDownEvent(function(){
+    console.log(4);
+});
+
+// setTimeout(unsubscrible2,5000);
+// setTimeout(unsubscrible1,7000);
+// setTimeout(()=>{
+//     addPageDownEvent(function(){
+//         console.log(3);
+//     });
+// },10000);
+
+
 
 class AppMovie extends Component{
     constructor(){
@@ -54,7 +73,7 @@ class AppMovie extends Component{
                 </div>
                 <div className="sectionbox-wrapper hotmovies-sectionbox">
                     <div className="sectionbox-g-titlebox">
-                        <Title title="热门电影">
+                        <Title title="热门电影" iconColor="#159bfb">
                                 <a href="javascript:void(0);" className="morebtn">更多 &gt;</a>
                         </Title>
                     </div>
@@ -64,7 +83,7 @@ class AppMovie extends Component{
                 </div>
                 <div className="sectionbox-wrapper recommendedmovies-sectionbox">
                     <div className="sectionbox-g-titlebox">
-                        <Title title="今日推荐">
+                        <Title title="今日推荐" iconColor="#F2108D">
                             <Pagations actClass={"act"} actIndex={0} Count={6} Loop={false}></Pagations>
                         </Title>
                     </div>
@@ -74,7 +93,7 @@ class AppMovie extends Component{
                 </div>
                 <div className="sectionbox-wrapper soonmovies-sectionbox">
                     <div className="sectionbox-g-titlebox">
-                        <Title title="即将上映">
+                        <Title title="即将上映" iconColor="rgb(242,151,32)">
                                 <a href="javascript:void(0);" className="morebtn">更多 &gt;</a>
                         </Title>
                     </div>
@@ -85,7 +104,7 @@ class AppMovie extends Component{
                 <Groom></Groom>
                 <div className="sectionbox-wrapper commentbox-sectionbox">
                     <div className="sectionbox-g-titlebox">
-                        <Title title="最受欢迎影评">
+                        <Title title="最受欢迎影评" iconColor="rgb(12,242,251)">
                                 <a href="javascript:void(0);" className="morebtn">更多 &gt;</a>
                         </Title>
                     </div>

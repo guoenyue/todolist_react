@@ -27,6 +27,9 @@
 
 .movieApp {
     width: 100%;
+    padding-bottom:0.2667rem;
+    margin-bottom: 1.0567rem;
+    box-shadow:0 2px 4px #333;
 }
 
 .banner {
@@ -78,26 +81,10 @@
 
 .banner-ib-active-item {
     display: inline-block;
-    width: 4.56rem;
-    height: 2.1333rem;
-    border-radius: 0.18rem;
-    -webkit-border-radius: 0.18rem;
-    -moz-border-radius: 0.18rem;
-    -ms-border-radius: 0.18rem;
-    -o-border-radius: 0.18rem;
-    vertical-align: middle;
 }
 
 .banner-ib-active-item~.banner-ib-active-item {
     margin-left: 0.24rem;
-}
-
-.banner-ib-active-item.bg-1 {
-    background-color: #00a0f3;
-}
-
-.banner-ib-active-item.bg-2 {
-    background-color: #F2108D;
 }
 
 .b-title {
@@ -105,16 +92,6 @@
     width: 100%;
     color: #fff;
     text-align: center;
-}
-
-.banner-ib-active-item .b-title-main {
-    margin: 0.5333rem 0 0.1067rem;
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.banner-ib-active-item .b-title-sub {
-    font-size: 12px;
 }
 
 .banner .line-b-solid {
@@ -129,37 +106,8 @@
     padding-top: 0.8rem;
 }
 
-.ib-title-main {
-    display: inline-block;
-}
-
 .sectionbox-wrapper .sectionbox-g-titlebox {
     margin: 0 0.32rem;
-}
-
-.sectionbox-g-titlebox .ib-title-txt {
-    display: inline-block;
-    font-size: 20px;
-    color: #fff;
-    font-weight: 600;
-    vertical-align: middle;
-}
-
-.sectionbox-g-titlebox .title-ib-icon {
-    display: inline-block;
-    width: 0.1333rem;
-    height: 0.6667rem;
-    margin-right: 0.5333rem;
-    vertical-align: middle;
-    border-radius: 0.0533rem;
-    -webkit-border-radius: 0.0533rem;
-    -moz-border-radius: 0.0533rem;
-    -ms-border-radius: 0.0533rem;
-    -o-border-radius: 0.0533rem;
-}
-
-.hotmovies-sectionbox .sectionbox-g-titlebox .title-ib-icon {
-    background-color: #159bfb;
 }
 
 .sectionbox-g-titlebox .morebtn {
@@ -257,9 +205,6 @@
 .recommendedmovies-sectionbox{
     padding-top:0.9333rem;
 }
-.recommendedmovies-sectionbox .sectionbox-g-titlebox .title-ib-icon {
-    background-color: #F2108D;
-}
 .pagations-wrapper{
     padding-top:0.1867rem;
 }
@@ -317,9 +262,6 @@
 
 .soonmovies-sectionbox{
     padding-top:0.8rem;
-}
-.soonmovies-sectionbox .sectionbox-g-titlebox .title-ib-icon {
-    background-color: rgb(242,151,32);
 }
 .soonmovies-wrapper{
     overflow: hidden;
@@ -424,9 +366,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space:nowrap
-}
-.commentbox-sectionbox .sectionbox-g-titlebox .title-ib-icon {
-    background-color: rgb(12,242,251);
 }
 .commentbox-sectionbox .commentbox-wrapper{
     padding:0.32rem;
