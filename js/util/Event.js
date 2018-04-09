@@ -2,10 +2,12 @@ let downEvent=null;
 let upEvent=null;
 let downEvents=null;
 let upEvents=null;
+
+let winH=document.body.clientHeight||document.body.scrollHeight||document.documentElement.scrollHeight;
+let screenH=window.outerHeight;
+
 let pageEvent={
     down(range){
-        let winH=document.body.clientHeight||document.body.scrollHeight||document.documentElement.scrollHeight;
-        let screenH=window.outerHeight;
         typeof downEvent=="function"&&downEvent(range,winH,screenH);
         if(downEvents instanceof Array&&downEvents.length>0){
             for(let i=0,eve;eve=downEvents[i++];){

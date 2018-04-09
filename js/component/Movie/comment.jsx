@@ -1,5 +1,8 @@
 import React,{Component} from "react";
 
+import {loadWeeklyMovies} from "../../util/fetch";
+
+
 class Comment extends Component{
     constructor(){
         super();
@@ -9,23 +12,33 @@ class Comment extends Component{
     }
 
     componentWillMount(){
+        this.getMovies();
+    }
 
+    getMovies(){
+        loadWeeklyMovies().then(res=>{
+            this.setState({
+                movies:res.subjects
+            });
+        });
     }
 
     render(){
+        const len=6;
+        const ulW=len*9+"rem";
         return (
             <div className="recommendedmovies-wrapper">
-                <div className="recommendedmovies-container">
-                    <ul className="recommendedmovies-list clearfix">
+                <div className="recommendedmovies-container" style={{overflow:"auto"}}>
+                    <ul className="recommendedmovies-list clearfix" style={{width:ulW}}>
                         {
-                            this.state.movies.map((movie,index)=>(
+                            this.state.movies.slice(0,6).map((movie,index)=>(
                                 <li key={movie.id} className="recommendedmovies-item">
                                     <div className="recommendedmovies-box">
-                                        <a href="javascript:;"><img src={movie.img} alt={movie.name} className="moviecover" /></a>
+                                        <a href="javascript:;"><img src={movie.images.medium} alt={movie.title} className="moviecover" /></a>
                                         <div className="b-descbox">
-                                            <h3 className="moviename">{movie.name}</h3>
+                                            <h3 className="moviename">{movie.title}</h3>
                                             <p className="actors-wrapper">
-                                                主演 ：<span className="actor-item">{movie.actor}</span>
+                                                导演 ：<span className="actor-item">{movie.directors[0].name}</span>
                                             </p>
                                         </div>
                                     </div>

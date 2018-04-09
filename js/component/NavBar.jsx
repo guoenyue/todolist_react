@@ -28,21 +28,21 @@ let navItemStyle={
     backgroundColor:""
 };
 
-let unsubscrible1=addPageDownEvent(function(){
-    console.log(1);
-});
+// let unsubscrible1=addPageDownEvent(function(){
+//     console.log(1);
+// });
 
-let unsubscrible2=addPageDownEvent(function(){
-    console.log(2);
-});
+// let unsubscrible2=addPageDownEvent(function(){
+//     console.log(2);
+// });
 
-setTimeout(unsubscrible2,5000);
-setTimeout(unsubscrible1,7000);
-setTimeout(()=>{
-    addPageDownEvent(function(){
-        console.log(3);
-    });
-},10000);
+// setTimeout(unsubscrible2,5000);
+// setTimeout(unsubscrible1,7000);
+// setTimeout(()=>{
+//     addPageDownEvent(function(){
+//         console.log(3);
+//     });
+// },10000);
 
 const NavBar = ()=>(
     <div style={panelStyle}>

@@ -9,26 +9,12 @@ import Comment from "./Movie/Comment";
 import Comming from "./Movie/Comming";
 import Groom from "./Movie/Groom";
 import Popular from "./Movie/Popular";
+import Modal from "./common/Modal";
 
-import {addPageDownEvent,addPageUpEvent} from "../util/Event";
+import {getPos} from "../plugin/Map";
+
 
 import "../../css/movies.css";
-
-let unsubscrible1=addPageDownEvent(function(){
-    console.log(3);
-});
-
-let unsubscrible2=addPageDownEvent(function(){
-    console.log(4);
-});
-
-// setTimeout(unsubscrible2,5000);
-// setTimeout(unsubscrible1,7000);
-// setTimeout(()=>{
-//     addPageDownEvent(function(){
-//         console.log(3);
-//     });
-// },10000);
 
 
 
@@ -38,36 +24,70 @@ class AppMovie extends Component{
         this.touchBegin=this.touchBegin.bind(this);
         this.touchMove=this.touchMove.bind(this);
         this.touchEnd=this.touchEnd.bind(this);
+        this.changeCity=this.changeCity.bind(this);
+        this.closeModal=this.closeModal.bind(this);
+        //this.getGPRS_Pos=this.getGPRS_Pos.bind(this);
+        this.state={
+            city:"定位中...",
+            cityCode:null,
+            showModal:false,
+        };
     }
     componentWillMount(){
+        this.getGPRS_Pos();
     }
     touchBegin(touchEvent){
         this.beginPos={
             x:touchEvent.clientX,
             y:touchEvent.clientY
         };
-        console.log("起点",this.beginPos);
     }
     touchMove(touchEvent){
         let curPos={
             x:touchEvent.clientX,
             y:touchEvent.clientY
         };
-        //console.log("在移动",curPos);
-        console.log(`移动了x:${curPos.x-this.beginPos.x},y:${curPos.y-this.beginPos.y}`);
     }
     touchEnd(touchEvent){
         let endPos={
             x:touchEvent.clientX,
             y:touchEvent.clientY
         }
-        console.log(`最终移动了x:${endPos.x-this.beginPos.x},y:${endPos.y-this.beginPos.y}`);
     }
+    getGPRS_Pos(){
+        getPos(pos=>{
+            let {citycode,province:city}=pos.addressComponent;
+            this.setState(
+                {
+                    cityCode:citycode,
+                    city
+                }
+            );
+        },err=>{
+            console.log("sorry,定位失败,请手动指定城市");
+        });
+    }
+
+    changeCity(){
+        this.setState(
+            {showModal:true}
+        );
+        document.body.style.overflow="hidden";
+        document.documentElement.style.overflow="hidden";
+    }
+    closeModal(){
+        this.setState({
+            showModal:false
+        });
+        document.body.style.overflow="auto";
+        document.documentElement.style.overflow="auto";
+    }
+
     render(){
         return (
             <div className="movieApp">
-                <div className="banner" onTouchStart={(e)=>this.touchBegin(e.touches[0])} onTouchMove={(e)=>this.touchMove(e.touches[0])} onTouchEnd={(e)=>console.log(e.touches)}>
-                    <SearchBar placeholder="搜索" searchEvent={(val)=>console.log(val)} keyEvent={()=>{}}></SearchBar>
+                <div className="banner">
+                    <SearchBar placeholder="&#xe612;  电影/影院" searchEvent={(val)=>console.log(val)} keyEvent={()=>{}} city={this.state.city} clickEvent={this.changeCity}></SearchBar>
                     <HotActives actives={[{id:1212,href:"javascript:;",title:"热门活动",num:7,txt:"个优惠"},{id:2121,href:"javascript:;",title:"每日红包",num:13607,txt:"人已领取"}]}></HotActives>
                     <div className="line-b-solid"></div>
                 </div>
@@ -112,6 +132,9 @@ class AppMovie extends Component{
                         <Popular></Popular>
                     </div>
                 </div>
+                <Modal clickEvent={this.closeModal} show={this.state.showModal} showCloseBtn={true}>
+                    <div style={{height:1000}}>我是遮罩层内部的一个站位盒子</div>
+                </Modal>
             </div>
         )
     }

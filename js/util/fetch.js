@@ -28,11 +28,27 @@ const loadBookDetail=(id)=>{
 }
 
 const loadTheaterMovies=()=>{
-    let url=`/movie`;
+    let url=`/in_theaters`;
     let myHeaders=new Headers();
     let config={method:"get",mode:"cors",cache:true,headers:myHeaders};
     let myReauest=new Request(url,config);
     return fetch(myReauest).then(res=>res.json());
 }
 
-export {loadBookList, loadBookCatalog,loadBookDetail,loadTheaterMovies};
+const loadWeeklyMovies=()=>{
+    let url=`/weekly`;
+    let myHeaders=new Headers();
+    let config={method:"get",mode:"cors",cache:true,headers:myHeaders};
+    let myReauest=new Request(url,config);
+    return fetch(myReauest).then(res=>res.json());
+}
+
+const loadComingMovies=()=>{
+    let url=`/coming`;
+    let myHeaders=new Headers();
+    let config={method:"get",mode:"cors",cache:true,headers:myHeaders};
+    let myReauest=new Request(url,config);
+    return fetch(myReauest).then(res=>res.json());
+}
+
+export {loadBookList, loadBookCatalog,loadBookDetail,loadTheaterMovies,loadWeeklyMovies,loadComingMovies};

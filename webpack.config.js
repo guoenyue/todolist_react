@@ -45,14 +45,30 @@ const config={
     devServer:{
         hot:true,
         contentBase:path.join(__dirname,"dist"),
-        host: 'localhost',
+        host: '192.168.0.114',
         port: '3011',
         proxy:{
-            "/movie":{
+            "/in_theaters":{
                 target: 'https://api.douban.com/',
-                pathRewrite: {'/movie' : '/v2/movie/in_theaters'},
+                pathRewrite: {'/in_theaters' : '/v2/movie/in_theaters'},
                 changeOrigin: true,
                 secure: false
+            },
+            "/weekly":{
+                target:"https://api.douban.com/",
+                pathRewrite:{
+                    "/weekly":"/v2/movie/top250"
+                },
+                changeOrigin:true,
+                secure:false
+            },
+            "/coming":{
+                target:"https://api.douban.com/",
+                pathRewrite:{
+                    "/coming":"/v2/movie/coming_soon"
+                },
+                changeOrigin:true,
+                secure:false
             }
         }
     }
